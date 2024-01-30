@@ -1,0 +1,58 @@
+[
+  {
+    "categoryName": "English",
+    "iconUrl": "https://i.ibb.co/VqDbycq/english.png"
+  },
+  {
+    "categoryName": "Mathematics",
+    "iconUrl": "https://i.ibb.co/dbTsn2k/calculating.png"
+  },
+  {
+    "categoryName": "Music",
+    "iconUrl": "https://i.ibb.co/zQXFbpK/music-notes.png"
+  },
+  {
+    "categoryName": "Arts and Crafts",
+    "iconUrl": "https://i.ibb.co/YbHKsBN/arts-and-crafts.png"
+  },
+  {
+    "categoryName": "Cooking Classes",
+    "iconUrl": "https://i.ibb.co/Vw31v9h/cooking.png"
+  },
+  {
+    "categoryName": "Fitness Training",
+    "iconUrl": "https://i.ibb.co/hFZBgwg/fitness.png"
+  },
+  {
+    "categoryName": "Science",
+    "iconUrl": "https://i.ibb.co/LRhvT8b/science.png"
+  },
+  {
+    "categoryName": "Photography",
+    "iconUrl": "https://i.ibb.co/nCmNZBY/photography.png"
+  },
+  {
+    "categoryName": "Writing",
+    "iconUrl": "https://i.ibb.co/nnr74Lz/note.png"
+  },
+  {
+    "categoryName": "Meditation",
+    "iconUrl": "https://i.ibb.co/CzRh00Q/meditation.png"
+  },
+  {
+    "categoryName": "Personal Finance",
+    "iconUrl": "https://i.ibb.co/dGvsZgc/personal.png"
+  },
+  {
+    "categoryName": "Social Science",
+    "iconUrl": "https://i.ibb.co/mNKjPJ5/development.png"
+  },
+  {
+    "categoryName": "Public Speaking",
+    "iconUrl": "https://i.ibb.co/FKHQTTV/public-speaking.png"
+  },
+  {
+    "categoryName": "Coaching",
+    "iconUrl": "https://i.ibb.co/G7vM9C1/coach.png"
+  }
+]

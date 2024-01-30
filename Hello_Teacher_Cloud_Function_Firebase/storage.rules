@@ -1,0 +1,15 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /uploads/{allPaths=**} {
+      // Prevent all write operations in the icon_seed folder
+      allow read: if true;
+      allow write: if true;
+    }
+    match /chat_files/{allPaths=**} {
+      // Prevent all write operations in the icon_seed folder
+      allow read: if true;
+      allow write: if true;
+    }
+  }
+}

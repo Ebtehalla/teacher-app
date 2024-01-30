@@ -1,0 +1,104 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+  match /Users/{userId}{
+    allow create: if true;
+    allow read, update:if isAuthenticated();
+      match /teacherId 
+      {
+        allow read;
+        allow write: if false;
+      }
+    }
+    
+    match /Teachers/{teacherId}{
+      allow read: if isAuthenticated();
+      allow write: if get(/databases/$(database)/documents/Users/$(request.auth.uid)).data.teacherId == teacherId ||
+            get(/databases/$(database)/documents/Users/$(request.auth.uid)).data.role == 'teacher';
+
+      allow create: if isAuthenticated() &&
+      get(/databases/$(database)/documents/Users/$(request.auth.uid)).data.role == 'teacher' &&
+      !('accountStatus' in request.resource.data) &&
+      !('balance' in request.resource.data);
+
+      allow update: if ((get(/databases/$(database)/documents/Users/$(request.auth.uid)).data.teacherId == resource.id) && 
+      (!request.resource.data.diff(resource.data).affectedKeys()
+        .hasAny(['accountStatus', 'balance']))) || isAdmin();
+
+    }
+
+  	match /Category/{categoryId}{
+    allow read: if isAuthenticated();
+    allow write: if isAdmin();
+    }
+    
+    match /TimeSlot/{timeslotId}{
+    // allow create timeslot only role teacher
+    allow create: if isAuthenticated() && get(/databases/$(database)/documents/Users/$(request.auth.uid)).data.role == 'teacher';
+    allow read: if isAuthenticated() || isAdmin();
+    allow update, delete: if true;
+    allow update, delete: if get(/databases/$(database)/documents/Users/$(request.auth.uid)).data.teacherId == resource.data.teacherId;
+    }
+  
+    match /Order/{orderId}{
+    allow read,update: if isAuthenticated() && request.auth.uid == resource.data.userId || isAdmin();
+
+    }
+    match /WithdrawMethod/{withdrawId}{
+    allow read,create: if isAuthenticated() && get(/databases/$(database)/documents/Users/$(request.auth.uid)).data.role == 'teacher';
+    allow delete: if resource.data.userId == request.auth.uid;
+    }
+    match /WithdrawRequest/{withdrawRequestId}{
+    allow read,create: if isAuthenticated() && get(/databases/$(database)/documents/Users/$(request.auth.uid)).data.role == 'teacher' || isAdmin();
+    allow update: if isAdmin();
+    }
+    match /Transaction/{transactionId}{
+    allow read,create: if isAuthenticated();
+    allow update: if isAdmin();
+    }
+    match /Review/{reviewId}{
+    allow read,create,update: if isAuthenticated();
+    }
+    match /Problem/{problemId}{
+    allow read,create,update: if isAuthenticated();
+    }
+    match /TopRatedTeacher/{topRatedTeacherId}{
+    allow read : if isAuthenticated();
+    allow create, delete : if isAdmin();
+    }
+    
+    function isAuthenticated() {
+    	return request.auth != null;
+    }
+
+    function isAdmin() {
+      return request.auth.token.isAdmin == true;
+    }
+    match /Rooms/{roomId} {
+     allow read,write: if isAuthenticated();
+    }
+    match /RoomVideoCall/{roomIdVideoCall} {
+     allow read,write: if isAuthenticated();
+    }
+    
+    match /Rooms/{roomid}/messages/{messageId} {
+    allow read,write: if isAuthenticated();
+    }
+    
+    match /users/{userId} {
+      allow read,write : if true;
+  	}
+    match /Settings/{settingsId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+  	}
+    match /Settings/{name=**} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+  	}
+    match /OnlineTeacher/{teacherId} {
+      allow read, write: if isAuthenticated();
+  	}
+  }
+}
