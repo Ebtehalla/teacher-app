@@ -7,11 +7,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'app/routes/app_pages.dart';
 import 'constants.dart';
-import 'firebase_options.dart';
+// import 'firebase_options.dart';
 
 void main() async {
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+    // options: DefaultFirebaseOptions.currentPlatform,
   );
 
   runApp(const MainApp());

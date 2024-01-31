@@ -80,7 +80,7 @@ flutter:
   uses-material-design: true
   assets:
     - .env
-    - assets/images/
+    - asse  ts/images/
     - assets/icons/
     - assets/animations/
 
