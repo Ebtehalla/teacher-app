@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Hello_Teacher_Admin_Dashboard",
+            "cwd": "Hello_Teacher_Admin_Dashboard",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Hello_Teacher_Admin_Dashboard (profile mode)",
+            "cwd": "Hello_Teacher_Admin_Dashboard",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "Hello_Teacher_Admin_Dashboard (release mode)",
+            "cwd": "Hello_Teacher_Admin_Dashboard",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "Hello_Teacher_Flutter_Firebase",
+            "cwd": "Hello_Teacher_Flutter_Firebase",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Hello_Teacher_Flutter_Firebase (profile mode)",
+            "cwd": "Hello_Teacher_Flutter_Firebase",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "Hello_Teacher_Flutter_Firebase (release mode)",
+            "cwd": "Hello_Teacher_Flutter_Firebase",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
